@@ -4,6 +4,11 @@ input.onButtonPressed(Button.A, function () {
         basic.showString("" + LoopCount)
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    if (ok) {
+        basic.clearScreen()
+    }
+})
 function RollDice () {
     if (ok) {
         ok = false
