@@ -5,22 +5,37 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.AB, function () {
-    if (ok) {
+    for (let index = 0; index <= 9; index++) {
+        led.plotBarGraph(
+        index,
+        11,
+        false
+        )
+        basic.pause(50)
+        basic.clearScreen()
+    }
+    for (let index = 0; index <= 9; index++) {
+        led.plotBarGraph(
+        1,
+        index,
+        false
+        )
+        basic.pause(100)
         basic.clearScreen()
     }
 })
 function RollDice () {
     if (ok) {
         ok = false
+        music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.InBackground)
+        for (let index = 0; index < LoopCount; index++) {
+            basic.showIcon(IconNames.Square)
+            basic.showIcon(IconNames.Chessboard)
+        }
+        music.stopAllSounds()
+        basic.showNumber(randint(1, 6))
+        ok = true
     }
-    music.play(music.builtinPlayableSoundEffect(soundExpression.twinkle), music.PlaybackMode.InBackground)
-    for (let index = 0; index < LoopCount; index++) {
-        basic.showIcon(IconNames.Square)
-        basic.showIcon(IconNames.Chessboard)
-    }
-    music.stopAllSounds()
-    basic.showNumber(randint(1, 6))
-    ok = true
 }
 input.onButtonPressed(Button.B, function () {
     if (ok) {
